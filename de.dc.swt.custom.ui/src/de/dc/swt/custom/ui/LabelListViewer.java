@@ -24,14 +24,18 @@ public class LabelListViewer extends Composite {
 		memberLabel.setLayoutData(new GridData(SWT.FILL, SWT.TOP, false, true, 1, 1));
 		memberLabel.setText("Members");
 		
-		Composite composite_1 = new Composite(this, SWT.NONE);
-		composite_1.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
-		composite_1.setLayout(new GridLayout(1, false));
+		Composite memberComposite = new Composite(this, SWT.NONE);
+		memberComposite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
+		GridLayout gl_memberComposite = new GridLayout(1, false);
+		gl_memberComposite.marginHeight = 0;
+		gl_memberComposite.marginWidth = 0;
+		memberComposite.setLayout(gl_memberComposite);
 		
-		searchText = new Text(composite_1, SWT.BORDER);
+		searchText = new Text(memberComposite, SWT.BORDER);
 		searchText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		searchText.setMessage("Search ...");
 		
-		ListViewer memberList = new ListViewer(composite_1, SWT.BORDER);
+		ListViewer memberList = new ListViewer(memberComposite, SWT.BORDER);
 		List list = memberList.getList();
 		list.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		memberList.setContentProvider(new ArrayContentProvider());
